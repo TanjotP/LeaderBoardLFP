@@ -111,11 +111,18 @@ document.body.onmousedown = function() { return false; } //so page is unselectab
             for(var i = 0 ; i < 5; i++){
                 ctx.fillText(citizenPlaying[i].name + "-----" +
                              citizenPlaying[i].scs, 20, 100+(i*100));
-                if(citizenPlaying[i].scs < 10){
-                    gamescreen = 0;
+                if(citizenPlaying[i].scs < 0){
+                    gamescreen = 4;
                 }
             }
 
+        }
+        if(gamescreen == 4){
+            ctx.fillStyle='grey';
+			ctx.fillRect(0,0,w,h);
+			ctx.font='12pt Courier New';
+            ctx.fillStyle='black';
+			ctx.fillText("Someone's SCS was lower than 0", w/3,30);  
         }
 	
 	}////////////////////////////////////////////////////////////////////////////////END PAINT/ GAME ENGINE
